@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
   resources :albums
   devise_for :users
+  resources :images, only: [:index, :new, :create, :destroy]
   root :to => "albums#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

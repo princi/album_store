@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <h1><%= link_to "HOME", albums_path, class: "btn btn-info" %></h1>
   <title>AlbumStore</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -18,9 +19,7 @@
         <%= link_to 'Log in', new_user_session_path %>
         <% end %>
       </div>
-        <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-        <% end %>
+
     <%= yield %>
 
 

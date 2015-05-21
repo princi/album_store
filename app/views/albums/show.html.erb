@@ -4,6 +4,11 @@
   <strong>Name:</strong>
   <%= @album.name %>
 </p>
+<p><%= link_to "Image", images_path %></p>
 
+<% if current_user %>
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>
+<% else %>
+<%= link_to 'Back', albums_path %>
+<% end %>
