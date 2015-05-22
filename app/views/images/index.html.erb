@@ -4,7 +4,10 @@
   </div>
 <% end %>
 <br />
+<%= link_to "Back", albums_path %>
+<% if current_user %>
 <%= link_to "New Image", new_image_path, class: "btn btn-primary" %>
+<% end %>
 <br />
 <br />
 <table class="table table-bordered table-striped">
@@ -20,7 +23,9 @@
       <tr>
         <td><%= image.name %></td>
         <td><%= link_to "Download Image", image.attachment_url %></td>
+        <% if current_user %>
         <td><%= button_to "Delete",  image, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{image.name}?" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
