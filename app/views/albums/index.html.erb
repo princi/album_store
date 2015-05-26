@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Albums</h1>
-
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,7 +13,7 @@
     <% @albums.each do |album| %>
       <tr>
         <td><%= album.name %></td>
-        <% if current_user == @album.user %>
+        <% if current_user == album.user %>
         <td><%= link_to 'Show', album_path(album), class: "btn" %></td>
         <td><%= link_to 'Edit', edit_album_path(album), class: "btn" %></td>
         <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn"%>

@@ -4,13 +4,18 @@
   </div>
 <% end %>
 <br />
-<%= link_to "Back", albums_path %>
+
+<h1><b><%= @album.name %></b></h1>
+
+<pre>
+  <%= link_to "Back", albums_path, class: "btn btn-primary" %>
 <% if current_user == @album.user %>
   <%= link_to "New Image", new_album_image_path, class: "btn btn-primary" %>
 <% end %>
-<br />
-<br />
+</pre>
 
+<br />
+<br />
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
