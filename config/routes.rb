@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-resources :images
   devise_for :users
   resources :albums do |albums|
     resources :images
-    root :to => "albums#index"
-    end
-    root 'albums#index'
+  end
+  root 'albums#index'
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

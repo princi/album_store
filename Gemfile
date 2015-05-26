@@ -48,5 +48,6 @@ group :development, :test do
   gem 'spring'
   gem 'better_errors'
   gem 'pry'
+  gem 'rails_best_practices'
 end
 

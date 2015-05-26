@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
+  before_filter :user_authorize, only: [:edit, :update, :destroy]
 
   # GET /albums
   # GET /albums.json
@@ -15,7 +16,7 @@ class AlbumsController < ApplicationController
 
   # GET /albums/new
   def new
-    @album = Album.new
+    @album = current_user.albums.new
   end
 
   # GET /albums/1/edit
@@ -25,7 +26,7 @@ class AlbumsController < ApplicationController
   # POST /albums
   # POST /albums.json
   def create
-    @album = Album.new(album_params)
+    @album = current_user.albums.new(album_params)
 
     respond_to do |format|
       if @album.save
@@ -68,6 +69,11 @@ class AlbumsController < ApplicationController
       @album = Album.find(params[:id])
     end
 
+    def user_authorize
+      if current_user != @album.user
+        redirect_to root_path, notice: "Sorry it's not your album."
+      end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
       params.require(:album).permit(:name, :user_id)
