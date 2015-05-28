@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_album, only: [:index, :new, :create, :destroy]
+  before_action :set_album, only: [:index, :new, :create, :destroy, :edit, :update]
 
   def index
     @images = @album.images.all
@@ -22,6 +22,13 @@ class ImagesController < ApplicationController
       render "new"
     end
   end
+
+  def update
+    @image = @album.images.find(params[:id])
+    @image.update(image_params)
+    redirect_to album_images_path
+  end
+
 
   def destroy
     @album = Album.find(params[:album_id])

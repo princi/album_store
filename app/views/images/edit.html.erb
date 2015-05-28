@@ -1,0 +1,7 @@
+<h1>Editing Images</h1>
+
+<%= simple_form_for @image, :url => {:controller => "images", :action => "update"} do |f| %>
+<%= f.input :name, input_html: { maxlength: 20 } %>
+<%= f.file_field :attachment %>
+<%= f.button :submit %>
+<% end %>

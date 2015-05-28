@@ -1,9 +1,4 @@
-<% if !flash[:notice].blank? %>
-  <div class="alert alert-info">
-  <%= flash[:notice] %>
-  </div>
-<% end %>
-<br />
+
 
 <h1><b><%= @album.name %></b></h1>
 
@@ -30,7 +25,8 @@
         <td><%= image.name %></td>
         <td><%= image_tag image.attachment_url %></td>
         <% if current_user == @album.user %>
-        <td><%= button_to "Delete",  [image.album, image], method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{image.name}?" %></td>
+        <td><%= button_to "Delete",  [image.album, image], method: :delete, data: {confirm:"Are you sure that you wish to delete #{image.name}?"},class: "btn btn-danger" %></td>
+        <td><%= button_to "Edit", edit_album_image_path(image.album,image), class: "btn btn-danger" , method: "get" %></td>
         <% end %>
       </tr>
     <% end %>

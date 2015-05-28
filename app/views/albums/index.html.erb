@@ -1,10 +1,11 @@
-<p id="notice"><%= notice %></p>
 
+<hr class="colorgraph">
 <h1>Listing Albums</h1>
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Album Name</th>
+      <th>User name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,10 +14,11 @@
     <% @albums.each do |album| %>
       <tr>
         <td><%= album.name %></td>
+        <td><%= album.user.email %></td>
         <% if current_user == album.user %>
         <td><%= link_to 'Show', album_path(album), class: "btn" %></td>
         <td><%= link_to 'Edit', edit_album_path(album), class: "btn" %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn"%>
+        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
         <% else %>
         <td><%= link_to 'Show', album_path(album), class: "btn" %></td>
         <% end %>
