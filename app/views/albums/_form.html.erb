@@ -1,5 +1,6 @@
 <%= simple_form_for(@album) do |f| %>
  <%= f.input :name, input_html: { maxlength: 20 } %>
+ <%= f.file_field :attachment %>
  <%= f.button :submit %>
 <% end %>
 

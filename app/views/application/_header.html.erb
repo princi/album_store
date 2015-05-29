@@ -1,29 +1,20 @@
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <%= link_to "Album store", root_path, class: "navbar-brand" %>
-        </div>
-
-          <div id="navbar" class="navbar-collapse collapse">
-            <% if user_signed_in? %>
-              <h style ="color:white">Logged in as <%=current_user.email %><h>
-              <div align = "right">
-              <%= link_to "sign out", destroy_user_session_path, method: :delete, class: "btn btn-success" %>
-              <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-success" %>
-            <% else %>
-              <%= render 'devise/sessions/new' %>
-            <% end %>
-          </div>
-
-
-
-
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <%= link_to "Album store", root_path, class: "navbar-brand" %>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <% if user_signed_in? %>
+        <%= render 'devise/sessions/temp' %>
+      <% else %>
+        <%= render 'devise/sessions/new' %>
+      <% end %>
+    </div>
+  </div>
+</nav>

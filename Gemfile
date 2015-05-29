@@ -26,7 +26,7 @@ gem 'annotate'
 gem 'devise'
 gem 'simple_form'
 gem 'carrierwave', '~> 0.9'
-
+gem "mini_magick"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

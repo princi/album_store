@@ -3,7 +3,7 @@
   <strong>Name:</strong>
   <%= @album.name %>
 </p>
-
+<hr class="colorgraph">
 <%= link_to "Images", album_images_path(@album), class: "btn btn-primary" %>
 
 <% if current_user == @album.user %>
@@ -11,10 +11,5 @@
 <% end %>
 
 <pre>
-<%# if current_user %>
-  <%#= link_to 'Edit', edit_album_path(@album) %>
-  <%#= link_to 'Back', albums_path %>
-<%# else %>
   <%= link_to 'Back', albums_path %>
-<%# end %>
 </pre>

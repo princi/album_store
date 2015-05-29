@@ -1,36 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <%#= link_to "HOME", albums_path, class: "btn btn-info" %>
-  <title>AlbumStore</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-    <div id="container" style="padding-top:20px;">
-      <!-- <div id="user_nav">
-        <% if user_signed_in? %>
-          Logged in as <%=current_user.email %>
-          <%= link_to 'Edit profile', edit_user_registration_path %>
-          <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'Sign up', new_user_registration_path %>
-          <%= link_to 'Log in', new_user_session_path %>
+  <head>
+    <title>AlbumStore</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+      <div id="container" style="padding-top:20px;">
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
         <% end %>
+          <%= render "header" %>
+          <%= yield %>
 
-      </div> -->
-
-      <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-
-      <%= render "header" %>
-      <%= yield %>
-      <% if !user_signed_in? %>
-        <%= render "sign_up_page" %>
-      <% end %>
-    </div>
-
+        <% if !user_signed_in? %>
+          <%= render "sign_up_page" %>
+        <% end %>
+      </div>
   </body>
-  </html>
+</html>
