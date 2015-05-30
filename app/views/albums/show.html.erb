@@ -1,15 +1,24 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p {
+     margin-top: 2cm;
+}
+</style>
+</head>
 <p>
-  <strong>Name:</strong>
-  <%= @album.name %>
-</p>
-<hr class="colorgraph">
-<%= link_to "Images", album_images_path(@album), class: "btn btn-primary" %>
-
+  <h1>
+    <strong >Album Name:</strong>
+    <%= @album.name %>
+  </h1>
+<br>
+<%= link_to "Images", album_images_path(@album), class: "btn btn-info" %>
+<br>
 <% if current_user == @album.user %>
-  <%= link_to "New Image", new_album_image_path(@album), class: "btn btn-primary" %>
+  <%= link_to "New Image", new_album_image_path(@album), class: "btn btn-info" %>
 <% end %>
-
-<pre>
-  <%= link_to 'Back', albums_path %>
-</pre>
+<br>
+<%= link_to 'Back', albums_path, class: "btn btn-info" %>
+</p>
+</html>

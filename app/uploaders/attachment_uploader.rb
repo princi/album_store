@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 class AttachmentUploader < CarrierWave::Uploader::Base
+include CarrierWave::MiniMagick
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -29,11 +30,13 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+process resize_to_fit: [800, 800]
 
+  version :thumb do
+    process resize_to_fill: [200,200]
+  end
   # Create different versions of your uploaded files:
-   version :thumb do
-    process :resize_to_fit => [200, 200]
-   end
+
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

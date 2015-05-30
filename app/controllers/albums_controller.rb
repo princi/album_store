@@ -6,6 +6,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
+    @album = current_user.albums.new
     @albums = Album.all
   end
 
@@ -17,7 +18,7 @@ class AlbumsController < ApplicationController
 
   # GET /albums/new
   def new
-    @album = current_user.albums.new
+    # @album = current_user.albums.new
   end
 
   # GET /albums/1/edit
