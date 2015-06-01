@@ -4,13 +4,12 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
-  gem 'bootstrap-sass', '3.2.0.2'
-  gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '3.2.0.2'
+gem 'sass-rails', '~> 5.0'
   # Use Uglifier as compressor for JavaScript assets
   # Use CoffeeScript for .coffee assets and views
-  gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.1.0'
   # See https://github.com/rails/execjs#readme for more supported runtimes
   # gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
@@ -27,8 +26,9 @@ gem 'devise'
 gem 'simple_form'
 gem 'carrierwave', '~> 0.9'
 gem 'rmagick', '2.13.2'
-
-
+gem 'pg'
+# gem 'sqlite3', '~> 1.3.10'
+gem 'puma'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
