@@ -1,32 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Album Gallery</h1>
+      <div class="page-header">
+        <h1>Album Gallery</h1>
+          <% if current_user %>
+            <div align="right">
+              <%= link_to "Add New Album", new_album_path, class: "btn btn-info" %>
+            </div>
+            <% end %>
+      </div>
+      <br>
     </div>
-      <%= render "album" %>
+    <%= render "album" %>
   </div>
     <hr>
-</div>
-<% if current_user %>
-
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Add New Album
-</button>
-<% end %>
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">New Album</h4>
-      </div>
-      <div class="modal-body">
-        <%= render 'form' %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
 </div>

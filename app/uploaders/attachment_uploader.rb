@@ -1,10 +1,10 @@
 # encoding: utf-8
 
 class AttachmentUploader < CarrierWave::Uploader::Base
-include CarrierWave::MiniMagick
+
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -30,10 +30,13 @@ include CarrierWave::MiniMagick
   # def scale(width, height)
   #   # do something
   # end
-process resize_to_fit: [800, 800]
+  process resize_to_fit: [800, 800]
 
   version :thumb do
-    process resize_to_fill: [200,200]
+    process :resize_to_limit => [200,200]
+  end
+  version :freeze do
+    process :resize_to_limit => [250,200]
   end
   # Create different versions of your uploaded files:
 

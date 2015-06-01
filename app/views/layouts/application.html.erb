@@ -7,16 +7,24 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-      <div id="container" style="padding-top:20px;">
-        <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
-        <% end %>
-          <%= render "header" %>
-          <%= yield %>
+    <div id="container" style="padding-top:20px;">
+      <%= render "header" %>
 
-        <% if !user_signed_in? %>
-          <%= render "sign_up_page" %>
-        <% end %>
-      </div>
+      <% if flash.present? %>
+        <div class="alert alert-success" role="alert" style="margin-top: 3%;">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, id: "flash_#{name}" %>
+          <% end %>
+        </div>
+      <% end %>
+      <% if !user_signed_in? %>
+        <%= render "sign_up_page" %>
+      <% end %>
+   </div>
+   <%= yield %>
   </body>
 </html>
+
+
+<!-- <div class="alert alert-danger" role="alert">...</div> -->
