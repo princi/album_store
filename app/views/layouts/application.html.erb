@@ -9,14 +9,20 @@
   <body>
     <div id="container" style="padding-top:20px;">
       <%= render "header" %>
-        <% if flash.present? %>
-          <div class="alert alert-warning alert-dismissible" role="alert" style="margin-top: 3%;">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <% flash.each do |name, msg| %>
-              <%= content_tag :div, msg, id: "flash_#{name}" %>
-            <% end %>
-          </div>
-        <% end %>
+
+      <div class="alert alert-success" role="alert" style="margin-top: 3%;">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <% unless flash[:notice].nil? %>
+            <div id="notice"><%= flash[:notice] %></div>
+          <% end %>
+      </div>
+      <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <% unless flash[:error].nil? %>
+            <div id="error"><%= flash[:error] %></div>
+          <% end %>
+      </div>
+
       <% if !user_signed_in? %>
         <%= render "sign_up_page" %>
       <% end %>
