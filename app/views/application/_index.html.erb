@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-hr {
-          display: block;
-          margin-top: 0.5em;
-          margin-bottom: 0.5em;
-          margin-left: auto;
-          margin-right: auto;
-          border-style: inset;
-          border-width: 4px;
-}
-</style>
-</head>
-<body>
-  <hr>
-  <br>
+
     <% @album.images.each do |image| %>
       <div class="col-lg-3 col-md-4 col-xs-6 thumb">
         <%= image_tag image.attachment_url(:thumb).to_s,size: "400x200" , :class => "img-responsive" %>
@@ -26,6 +9,3 @@ hr {
         <% end %>
       </div>
     <% end %>
-
-</body>
-</html>
