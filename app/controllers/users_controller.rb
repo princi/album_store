@@ -4,8 +4,6 @@ before_filter :set_user
       if current_person.user.present?
         @users= User.all
       end
-
-
       respond_to do |format|
        format.html # index.html.erb
        format.json { render json: @users }
@@ -47,7 +45,7 @@ before_filter :set_user
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       end
-    end
+  end
   def update
       if @user= current_person.user
         @user = User.find(params[:id])
@@ -62,7 +60,7 @@ before_filter :set_user
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       end
-    end
+  end
   def destroy
       @user = User.find(params[:id])
       if @user == current_person.user
@@ -78,6 +76,4 @@ before_filter :set_user
       def set_user
          @user = User.find(params[:id])
       end
-
-  end
 end
