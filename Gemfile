@@ -26,9 +26,8 @@ gem 'devise'
 gem 'simple_form'
 gem 'carrierwave', '~> 0.9'
 gem 'rmagick', '2.13.2'
-
+gem 'pg'
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 # gem 'sqlite3', '~> 1.3.10'
