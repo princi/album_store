@@ -4,7 +4,7 @@
       <% if album.attachment? %>
         <%=link_to album_path(album) do %>
         <br>
-          <%= image_tag album.attachment_url(:thumb).to_s , size: "400x200", :class => "img-responsive" %>
+          <%= image_tag album.attachment_url(:thumb), size: "400x200", :class => "img-responsive" %>
         <% end %>
       <% else %>
         <%= image_tag '150x200' , :class => "img-responsive" %>
