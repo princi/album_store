@@ -54,6 +54,5 @@ group :development, :test do
   gem 'pry'
   gem 'rails_best_practices'
   gem 'letter_opener'
-  gem 'thin'
 end
 
