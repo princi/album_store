@@ -4,7 +4,19 @@ Rails.application.routes.draw do
     resources :images
   end
   root 'albums#index'
+
+  namespace :api, defaults: {format: "json"} do
+    namespace :v1 do
+      #post "registrations" => "registrations#create", as => "register"
+
+     resources :albums do |albums|
+        resources :images
+     end
+    end
+  end
+
 end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

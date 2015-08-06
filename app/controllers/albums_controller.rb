@@ -8,6 +8,10 @@ class AlbumsController < ApplicationController
   def index
     @album = current_user.albums.new
     @albums = Album.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @albums }
+    end
   end
 
   # GET /albums/1

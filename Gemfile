@@ -27,6 +27,8 @@ gem 'simple_form'
 gem 'carrierwave', '~> 0.9'
 gem 'rmagick', '2.13.2'
 gem 'pg'
+gem 'rabl'
+gem 'oj'
 gem 'carrierwave-dropbox'
 group :production do
   gem 'rails_12factor'
